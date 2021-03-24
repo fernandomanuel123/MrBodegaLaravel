@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-		$usuarios = HTTP::get('http://localhost:5000/api/Producto');
+        $usuarios = HTTP::get('http://localhost:5000/api/Producto');
         $ArrayUsuarios = $usuarios->json();
-        return view('home',compact('ArrayUsuarios'));
+        return view('welcome')->with('ArrayUsuarios', $ArrayUsuarios);
     }
 }
