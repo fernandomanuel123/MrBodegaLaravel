@@ -50,7 +50,7 @@
                                 Productos
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Listar Productos</a>
+                                <a class="dropdown-item" href="productos">Listar Productos </a>
                                 <button class="btn dropdown-item" type="button" id="dropdownSubMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Categorias
                                 </button>

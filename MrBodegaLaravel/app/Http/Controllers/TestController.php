@@ -18,6 +18,27 @@ class TestController extends Controller
     }
 
     public function index() {
+
+       return view('test2'); 
+    }
+
+    public function enviarproductos(Request $req) {
+
+        $nombre = $req->input('nombre');
+        $descripcion = $req->input('descripcion');
+        
+        $precio = $req->input('precio');
+        $categoriaid = $req->input('categoria');
+        $stock = $req->input('stock');
+       
+        $data = Http::post('http://localhost:5000/api/Producto', [
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio' => $precio,
+            'categoriaId' => $categoriaid,
+            'stock' => $stock,            
+        ]);   
+        return view ('productos');
     }
 
     
@@ -35,9 +56,7 @@ class TestController extends Controller
             'precio' => $precio,
             'stock' => $stock,
             'categoriaId' => 1
-        ]);
-
-        
+        ]);       
         
         return view('welcome');
     }

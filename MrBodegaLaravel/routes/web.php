@@ -31,6 +31,9 @@ Route::post('/adm-usuario', [App\Http\Controllers\AdmUsuarioController::class, '
 Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name('test');
 Route::post('/test', [App\Http\Controllers\TestController::class, 'getProductos'])->name('test');
 
+Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos');
+Route::post('/productos', [App\Http\Controllers\ProductosController::class, 'enviarproductos'])->name('productos');
+
 /*Route::get('/login', function () {
     return view('login');
 });*/
