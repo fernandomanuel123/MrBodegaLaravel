@@ -20,6 +20,14 @@ class AdmUsuarioController extends Controller
     
     public function acceder(Request $request) {
 
+    if ($request->has('fileUpload')) {
+        $fileUpload = $request->input('fileUpload');
+        dd($fileUpload);
+
+        $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+        $ArrayUsuarios = $usuarios->json();
+        return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+    } else {
         $token = null;
         $email = $request->input('email');
         $password = $request->input('password');
@@ -40,6 +48,8 @@ class AdmUsuarioController extends Controller
         } else {
             return "Credenciales incorrectas";
         }
+    }
+       
         
     }
     
@@ -47,7 +57,13 @@ class AdmUsuarioController extends Controller
     {
         $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
         $ArrayUsuarios = $usuarios->json();
-        return view('welcome')->with('ArrayUsuarios', $ArrayUsuarios);
+        return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
        
     }
+
+    public function exportPDF() {
+        return 'a';
+    }
+
+
 }

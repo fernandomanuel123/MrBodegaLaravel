@@ -26,6 +26,6 @@ class HomeController extends Controller
     {
         $usuarios = HTTP::get('http://localhost:5000/api/Producto');
         $ArrayUsuarios = $usuarios->json();
-        return view('welcome')->with('ArrayUsuarios', $ArrayUsuarios);
+        return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
     }
 }

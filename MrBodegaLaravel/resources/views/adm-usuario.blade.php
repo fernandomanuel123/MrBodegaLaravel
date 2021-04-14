@@ -5,8 +5,25 @@
 
 
 <div class="container">
-    <div class="row justify-content-center">
 
+    <h2>Listado de usuarios</h2>
+    <div class="mb-3">
+
+        <form class="mb-3" action="/save-usuario" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-primary">Registrar usuario</button>
+        </form>
+
+
+        <form action="/adm-usuario" method="POST">
+            <input id="fileUpload" name="fileUpload" type="file" id="formFile">
+            <input class="ml-5" type="submit" name="upload" />
+        </form>
+
+
+    </div>
+
+    <div class="row justify-content-center">
 
         <table class="table">
             <thead>

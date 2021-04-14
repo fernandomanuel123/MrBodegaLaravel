@@ -36,20 +36,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <div class="dropdown">
-                            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <button class="btn" type="button" id="dropdownUsuarioButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 Usuarios
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Listar Usuario</a>
-                                <a class="dropdown-item" href="#">Registrar Usuario</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownUsuarioButton">
+                                <a class="dropdown-item" href="adm-usuario">Listar Usuario</a>
                             </div>
                         </div>
 
                         <div class="dropdown">
-                            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <button class="btn" type="button" id="dropdownProductoButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 Productos
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu" aria-labelledby="dropdownProductoButton">
                                 <a class="dropdown-item" href="productos">Listar Productos </a>
                                 <button class="btn dropdown-item" type="button" id="dropdownSubMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Categorias
@@ -69,17 +68,17 @@
 
 
                         <div class="dropdown">
-                            <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <button class="btn " type="button" id="dropdownBoletasButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 Boletas
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu" aria-labelledby="dropdownBoletasButton">
                                 <a class="dropdown-item" href="#">Listar Boletas</a>
                                 <a class="dropdown-item" href="#">Registrar Boleta</a>
                             </div>
                         </div>
 
                         <div class="dropdown">
-                            <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <button class="btn " type="button" id="dropdownEstadisticaButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 Estadistica
                             </button>
                         </div>

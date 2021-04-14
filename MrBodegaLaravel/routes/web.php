@@ -13,17 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('login');
-});*/
+});
 
 //Route::get('/login', 'LoginController@index');
 //Route::post('/login', 'LoginController@login');
 
 
-Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
-Route::post('/login', [App\Http\Controllers\AdmUsuarioController::class, 'acceder'])->name('login');
+Route::get('/', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('/', [App\Http\Controllers\AdmUsuarioController::class, 'acceder'])->name('login');
 
 Route::get('/adm-usuario', [App\Http\Controllers\AdmUsuarioController::class, 'index'])->name('adm-usuario');
 Route::post('/adm-usuario', [App\Http\Controllers\AdmUsuarioController::class, 'acceder'])->name('adm-usuario');
@@ -33,6 +32,13 @@ Route::post('/test', [App\Http\Controllers\TestController::class, 'getProductos'
 
 Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos');
 Route::post('/productos', [App\Http\Controllers\ProductosController::class, 'enviarproductos'])->name('productos');
+
+
+
+Route::post('/save-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'saveUsuarioView'])->name('save-usuario');
+Route::post('/guardar-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'guardarUsuario'])->name('guardar-usuario');
+
+
 
 /*Route::get('/login', function () {
     return view('login');
