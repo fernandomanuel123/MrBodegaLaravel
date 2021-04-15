@@ -34,19 +34,30 @@
                     <th scope="col">Correo</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">DNI</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
+           
                 @foreach($ArrayUsuarios as $usuario)
                 <tr>
                     <td>{{$usuario['id']}}</td>
-                    <td>{{$usuario['nombre']}}</td>
+                    <td>{{$usuario['nombre']}}</td> 
                     <td>{{$usuario['apellido']}}</td>
                     <td>{{$usuario['correo']}}</td>
                     <td>{{$usuario['telefono']}}</td>
                     <td>{{$usuario['dni']}}</td>
+
+                    <td>
+                    <form action="/detalle-usuario/{{$usuario['id']}}" method="POST">
+                    @csrf
+                    <button class="btn btn-primary" type="submit">Editar</button>
+                    </form>
+
+                    </td>
                 </tr>
                 @endforeach
+                
             </tbody>
         </table>
 
