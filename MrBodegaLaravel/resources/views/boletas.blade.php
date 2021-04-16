@@ -4,30 +4,29 @@
 
 <div class="container">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Agregar producto
+  Agregar boleta
 </button>
     <div class="row justify-content-center">        
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Precio</th>                    
-                    <th scope="col">Stock</th>
-                    <th scope="col">Opciones</th>                
+                    <th scope="col">Código</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Total</th>                                  
                 </tr>
             </thead>
             <tbody>
-            @foreach($ArrayProductos as $product)
+            @foreach($ArrayBoletas as $boleta)
                 <tr>
-                    <td>{{$product['nombre']}}</td>
-                    <td>{{$product['descripcion']}}</td>
-                    <td>{{$product['precio']}}</td>                   
-                    <td>{{$product['stock']}}</td>                    
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product-model-{{ $product['id'] }}">Edit</button></td>            
+                    <td>{{$boleta['id']}}</td>
+                    <td>{{$boleta['fecha']}}</td>
+                    <td>{{$boleta['direccion']}}</td>
+                    <td>{{$boleta['total']}}</td>                
+                    <td><button type="button" class="btn btn-primary">Editar</td>            
                 </tr>
-            @endforeach   
-</tbody>
+                @endforeach   
+            </tbody>
         </table>
 
     </div>
@@ -47,33 +46,30 @@
         
   <form method="POST" action="productos">
   @csrf
-  @foreach($ArrayProductos as $product)
-<div class="model" id="product-model-{{ $product['id'] }}">
-    <form method="PUT" action="productos">
-    @csrf     
      <div class="form-group">
-         <label>Name</label>
-         <input type="text" class="form-control" id="nombre" name="name" required value="{{ $product['nombre'] }}">
+         <label>Nombre</label>
+         <input type="text" class="form-control" id="nombre" name="nombre">
      </div>
      <div class="form-group">
         <label >Descripcion</label>
-        <input type="text" class="form-control" id="description" name="description" required value="{{ $product['descripcion'] }}">
+        <input type="text" class="form-control" id="descripcion" name="descripcion">
     </div>
     <div class="form-group">
-        <label>price</label>
-        <input id="price" type="number" class="form-control" name="price" required value="{{ $product['precio'] }}">
-    </div>         
+        <label>Precio</label>
+        <input id="precio" type="number" class="form-control" name="precio"  required >
+    </div> 
+    <div class="form-group">
+        <label>Categoria</label>
+        <input id="categoria" type="number" class="form-control" name="categoria"  required >
+    </div>      
     <div class="form-group">
         <label>Stock</label>
-        <input id="stock" type="number" class="form-control" name="stock" required  value="{{ $product['stock'] }}">
+        <input id="stock" type="number" class="form-control" name="stock"  required >
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
      </div> 
-  </form>
-</div>
-@endforeach
   </form>
      
 

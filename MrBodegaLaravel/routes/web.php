@@ -33,6 +33,9 @@ Route::post('/test', [App\Http\Controllers\TestController::class, 'getProductos'
 Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos');
 Route::post('/productos', [App\Http\Controllers\ProductosController::class, 'enviarproductos'])->name('productos');
 
+Route::get('/boletas', [App\Http\Controllers\BoletasController::class, 'index'])->name('boletas');
+Route::post('/boletas', [App\Http\Controllers\BoletasController::class, 'enviarboletas'])->name('boletas');
+
 
 
 Route::post('/save-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'saveUsuarioView'])->name('save-usuario');
