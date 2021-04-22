@@ -31,13 +31,13 @@ class ProductosController extends Controller
 
     public function enviarproductos(Request $req) {
 
-        $nombre = $req->input('nombre');
-        $descripcion = $req->input('descripcion');
+        $nombre = $req->input('add_nombre');
+        $descripcion = $req->input('add_descripcion');
         
-        $precio =  $req->input('precio');
-        $categoriaid = $req->input('categoria');        
-        $stock =  $req->input('stock');
-       
+        $precio =  $req->input('add_precio');
+        $categoriaid = $req->input('add_categoria');        
+        $stock =  $req->input('add_stock');       
+
         $data = Http::post('http://localhost:5000/api/Producto', [
             'nombre' => $nombre,
             'descripcion' => $descripcion,
