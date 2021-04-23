@@ -52,5 +52,30 @@ class ProductosController extends Controller
         return view('productos',compact('ArrayProductos'));
     }
 
+    public function editarproductos(Request $req) {
+
+        $id = $req->input('id');
+        $nombre = $req->input('nombre');
+        $descripcion = $req->input('descripcion');        
+        $precio =  $req->input('precio');
+        $categoriaid = $req->input('categoria');
+        $estado = $req->input('estado');      
+        $stock =  $req->input('stock');       
+
+        $data = Http::put('http://localhost:5000/api/Producto', [
+            'id' => $id,
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio' => $precio,
+            'categoriaId' => $categoriaid,
+            'estado' => $estado,
+            'stock' => $stock,            
+        ]);   
+        
+        $productos = HTTP::get('http://localhost:5000/api/Producto');
+        $ArrayProductos = $productos->json();
+        return view('productos',compact('ArrayProductos'));
+    }
+
 
 }

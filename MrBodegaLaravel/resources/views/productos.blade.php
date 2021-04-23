@@ -23,7 +23,7 @@
                     <td>{{$product['descripcion']}}</td>
                     <td>{{$product['precio']}}</td>                   
                     <td>{{$product['stock']}}</td>                    
-                    <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#producto" data-nombre="{{ $product['nombre'] }}" data-descripcion="{{ $product['descripcion'] }}"
+                    <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#producto" data-id="{{ $product['id'] }}" data-nombre="{{ $product['nombre'] }}" data-descripcion="{{ $product['descripcion'] }}"
                     data-precio="{{ $product['precio'] }}" data-categoria="{{ $product['categoriaId'] }}" data-estado="{{ $product['estado'] }}" data-stock="{{ $product['stock'] }}">Editar</button></td>             
                 </tr>
             @endforeach   
@@ -89,11 +89,13 @@
       </div>
       <div class="modal-body">
  
-    <form method="PUT" action="productos">
+    <form method="POST" action="productos">
+    @method('PUT')
     @csrf     
      <div class="form-group">
          <label>Nombre</label>
-         <input type="text" class="form-control" id="nombre" name="nombre" required >
+         <input type="text" class="form-control" id="nombre" name="nombre" required >         
+         <input type="hidden" class="form-control" id="id" name="id" >               
      </div>
      <div class="form-group">
         <label >Descripcion</label>
@@ -113,7 +115,7 @@
      </div>       
     <div class="form-group">
         <label>Stock</label>
-        <input id="stock" type="number" class="form-control" name="stock" required>
+        <input type="number" class="form-control" id="stock" name="stock" required>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -130,12 +132,14 @@
 $('#producto').on('shown.bs.modal', function(e) {
   var link = $(e.relatedTarget),
     modal = $(this),
+    id = link.data("id"),
     nombre = link.data("nombre"),
     descripcion = link.data("descripcion"),
     precio = link.data("precio"),
     categoria = link.data("categoria"),
     estado = link.data("estado"),
     stock = link.data("stock");
+    modal.find("#id").val(id);
   modal.find("#nombre").val(nombre);
   modal.find("#descripcion").val(descripcion);
   modal.find("#precio").val(precio);
