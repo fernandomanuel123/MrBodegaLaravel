@@ -25,11 +25,14 @@ class BoletasController extends Controller
     }
 
     public function test() {
+        $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+        $ArrayUsuarios = $usuarios->json();
+
        
-        return view('test');     
+        return view('add-boleta',compact('ArrayUsuarios'));     
     }
 
-    public function enviarproductos(Request $req) {
+    public function enviarboletas(Request $req) {
 
         $nombre = $req->input('nombre');
         $descripcion = $req->input('descripcion');
@@ -47,9 +50,9 @@ class BoletasController extends Controller
             'stock' => $stock,            
         ]);   
         
-        $productos = HTTP::get('http://localhost:5000/api/Producto');
-        $ArrayProductos = $productos->json();
-        return view('productos',compact('ArrayProductos'));
+        $boletas = HTTP::get('http://localhost:5000/api/Boleta');
+        $ArrayBoletas = $boletas->json();
+        return view('boletas',compact('ArrayBoletas'));
     }
 
 

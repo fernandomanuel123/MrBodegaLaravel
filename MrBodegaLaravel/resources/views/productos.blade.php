@@ -4,7 +4,7 @@
 
 
 <div class="container">
-<td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#product"> agregar</button></td>
+<td><button class="btn btn-primary" id ="btn-agregar" type="button" data-toggle="modal" data-target="#product"> agregar</button></td>
     <div class="row justify-content-center">        
         <table class="table">
             <thead>
@@ -69,7 +69,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" id="btn-grabar" class="btn btn-primary">Save changes</button>
      </div> 
   </form>
 
