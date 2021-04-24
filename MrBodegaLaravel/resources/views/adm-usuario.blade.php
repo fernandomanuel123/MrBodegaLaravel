@@ -11,14 +11,17 @@
 
         <form class="mb-3" action="/save-usuario" method="POST">
             @csrf
-            <button type="submit" class="btn btn-primary">Registrar usuario</button>
+            <button type="submit" id="btn-register" class="btn btn-primary">Registrar usuario</button>
         </form>
 
 
-        <form action="/adm-usuario" method="POST">
-            <input id="fileUpload" name="fileUpload" type="file" id="formFile">
-            <input class="ml-5" type="submit" name="upload" />
+        <form action="/importfile" method="POST" enctype="multipart/form-data">
+        @csrf
+            <label for="upload_file">Adjunte archivo</label>
+            <input type="file" name="upload_file" id="upload_file" >
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+		
 
 
     </div>

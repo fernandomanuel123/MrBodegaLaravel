@@ -37,7 +37,7 @@ Route::put('/productos', [App\Http\Controllers\ProductosController::class, 'edit
 Route::get('/boletas', [App\Http\Controllers\BoletasController::class, 'index'])->name('boletas');
 Route::get('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'test'])->name('boletas');
 
-
+Route::post('/importfile', [App\Http\Controllers\AdmUsuarioController::class, 'importfile'])->name('importfile');
 
 Route::post('/save-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'saveUsuarioView'])->name('save-usuario');
 Route::post('/guardar-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'guardarUsuario'])->name('guardar-usuario');

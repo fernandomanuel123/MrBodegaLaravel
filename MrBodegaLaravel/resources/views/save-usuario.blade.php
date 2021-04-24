@@ -17,20 +17,20 @@
                     Seleccione su genero:
                 </label>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="masculino" value="0">
-                    <label for="masculino" class="form-check-label">
+                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="0">
+                    <label id="masculino" for="masculino" class="form-check-label">
                         Masculino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="femenino" value="1">
-                    <label for="femenino" class="form-check-label">
+                    <input type="radio" class="form-check-input" name="gender" id="femenino" value="1">
+                    <label id="femenino" for="femenino" class="form-check-label">
                         Femenino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="incognito" value="2">
-                    <label for="incognito" class="form-check-label">
+                    <input type="radio" class="form-check-input" name="gender" id="incognito" value="2">
+                    <label id="incognito" for="incognito" class="form-check-label">
                         Incognito
                     </label>
                 </div>
