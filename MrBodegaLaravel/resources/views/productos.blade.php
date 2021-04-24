@@ -23,7 +23,7 @@
                     <td>{{$product['descripcion']}}</td>
                     <td>{{$product['precio']}}</td>                   
                     <td>{{$product['stock']}}</td>                    
-                    <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#producto" data-id="{{ $product['id'] }}" data-nombre="{{ $product['nombre'] }}" data-descripcion="{{ $product['descripcion'] }}"
+                    <td><button class="btn btn-primary" id="btn-edit" type="button" data-toggle="modal" data-target="#producto" data-id="{{ $product['id'] }}" data-nombre="{{ $product['nombre'] }}" data-descripcion="{{ $product['descripcion'] }}"
                     data-precio="{{ $product['precio'] }}" data-categoria="{{ $product['categoriaId'] }}" data-estado="{{ $product['estado'] }}" data-stock="{{ $product['stock'] }}">Editar</button></td>             
                 </tr>
             @endforeach   
@@ -119,7 +119,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" id ="btn-actualizar" class="btn btn-primary">Save changes</button>
      </div>     
   </form>
 

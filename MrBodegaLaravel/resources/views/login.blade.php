@@ -34,11 +34,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-<<<<<<< HEAD
                                 <button type="submit" id = "btn-ingresar"class="btn btn-primary">
-=======
-                                <button type="submit" id="btn-ingresar" class="btn btn-primary">
->>>>>>> 4e1c95004dfe9dbc59993dc3c1cca4fe0cfacdc9
                                     {{ __('Ingresar') }}
                                 </button>
                             </div>
