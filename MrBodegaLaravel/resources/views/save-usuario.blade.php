@@ -9,7 +9,7 @@
     <h2>Registrar usuario</h2>
     <form action="/guardar-usuario" method="POST">
         @csrf
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button id="btn-guardar" type="submit" class="btn btn-primary">Guardar</button>
 
         <div class="mb-3">
             <div class="form-group">

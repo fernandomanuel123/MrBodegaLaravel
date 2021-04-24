@@ -32,7 +32,7 @@ class SaveUsuarioController extends Controller
     public function guardarUsuario(Request $request)
     {
 
-        $genero = $request->input('genero');
+        $genero = $request->input('gender');
         $nombre = $request->input('nombre');
         $apellido = $request->input('apellido');
         $fechaNacimiento = $request->input('fecha');
@@ -41,7 +41,6 @@ class SaveUsuarioController extends Controller
         $dni = $request->input('dni');
         $password = $request->input('password');
         $confirmPassword = $request->input('confirm-password');
-
 
         if ($password == $confirmPassword) {
             $data = Http::post('http://localhost:5000/api/Usuario/Register', [
