@@ -9,7 +9,7 @@
     <h2>Editar usuario</h2>
     <form action="/actualizar-usuario" method="POST">
         @csrf
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" id="btn-guardar" class="btn btn-primary">Guardar</button>
 
         <div class="mb-3">
             <div class="form-group">

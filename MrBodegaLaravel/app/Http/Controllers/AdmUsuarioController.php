@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Form;  
+use App\Form;
+
 class AdmUsuarioController extends Controller
 {
     /**
@@ -21,7 +22,9 @@ class AdmUsuarioController extends Controller
             if($request->hasFile('upload_file')){
                 $logoImage = $request->file('upload_file');
                 $name = $logoImage->getClientOriginalName();
-                $data = Http::post('http://localhost:5000/api/FileUpload', [
+
+
+                $data = Http::withHeaders(['responseType' => 'text'])->post('http://localhost:5000/api/FileUpload', [
                     
                 ]);
                 return $name;
