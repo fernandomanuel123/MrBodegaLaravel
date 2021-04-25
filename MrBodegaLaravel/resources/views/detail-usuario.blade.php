@@ -6,8 +6,8 @@
 
 <div class="container">
 
-    <h2>Registrar usuario</h2>
-    <form action="/guardar-usuario" method="POST">
+    <h2>Editar usuario</h2>
+    <form action="/actualizar-usuario" method="POST">
         @csrf
         <button type="submit" class="btn btn-primary">Guardar</button>
 
@@ -17,24 +17,29 @@
                     Seleccione su genero:
                 </label>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="masculino" value="0">
+                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="{{$usuario['genero']}}" {{$usuario['genero']== 0 ? 'checked' : '' }}>
                     <label for="masculino" class="form-check-label">
                         Masculino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="femenino" value="1">
+                    <input type="radio" class="form-check-input" name="gender" id="femenino" value="{{$usuario['genero']}}"  {{$usuario['genero']== 1 ? 'checked' : '' }}>
                     <label for="femenino" class="form-check-label">
                         Femenino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="genero" id="incognito" value="2">
+                    <input type="radio" class="form-check-input" name="gender" id="incognito" value="{{$usuario['genero']}}"  {{$usuario['genero']== 2 ? 'checked' : '' }}>
                     <label for="incognito" class="form-check-label">
                         Incognito
                     </label>
                 </div>
             </div>
+        </div>
+
+        <div class="mb-3" hidden>
+            <label for="nombre" class="form-label">Id</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese su nombre" value="{{$usuario['id']}}">
         </div>
 
         <div class="mb-3">
@@ -54,7 +59,7 @@
 
         <div class="mb-3">
             <label for="apellido" class="form-label">Fecha Nacimiento</label>
-            <input type="date" class="form-control" name="fecha" id="fecha" data-value="{{$usuario['fechaNacimiento']}}">
+            <input type="date" class="form-control" name="fecha" id="fecha" value="{{$fechaNac}}">
         </div>
 
         <div class="mb-3">

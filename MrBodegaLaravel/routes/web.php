@@ -42,6 +42,8 @@ Route::post('/importfile', [App\Http\Controllers\AdmUsuarioController::class, 'i
 Route::post('/save-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'saveUsuarioView'])->name('save-usuario');
 Route::post('/guardar-usuario', [App\Http\Controllers\SaveUsuarioController::class, 'guardarUsuario'])->name('guardar-usuario');
 
+Route::post('/actualizar-usuario', [App\Http\Controllers\UsuarioDetailController::class, 'actualizarUsuario'])->name('actualizar-usuario');
+
 Route::post('detalle-usuario/{id}',  [App\Http\Controllers\UsuarioDetailController::class, 'loadView'])->name('loadView');
 
 /*Route::get('/login', function () {
