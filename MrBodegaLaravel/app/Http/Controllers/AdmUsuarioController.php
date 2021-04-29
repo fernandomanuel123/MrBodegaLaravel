@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Facades\Http;
 use App\Form;
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
+use Psr\Http\Message\ResponseInterface;
 
 class AdmUsuarioController extends Controller
 {
@@ -19,20 +23,107 @@ class AdmUsuarioController extends Controller
 
     public function importfile(Request $request)
     {
-            if($request->hasFile('upload_file')){
-                $logoImage = $request->file('upload_file');
-                $name = $logoImage->getClientOriginalName();
+        $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+        $ArrayUsuarios = $usuarios->json();
+        return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+        /*if ($request->hasFile('upload_file')) {
+            $file = $request->file('upload_file');
+            $name = $file->getClientOriginalName();
+            $extension = $request->file('upload_file')->extension();
+
+            //$data = Http::attach('files', $file, $name)->withHeaders(['responseType' => 'text'])->post('http://localhost:5000/api/FileUpload');
+            $client = new Client();
+            $promise = $client->requestAsync('POST', 'http://localhost:5000/api/FileUpload', [
+                ['headers' => ['responseType' => 'text']],
+                'multipart' => [
+                    [
+                        'name'     => 'files',
+                        'contents' => $file,
+                        'filename' => $name
+                    ]
+                ]
+            ]);
+
+            $promise->then(
+                function (ResponseInterface $res) use ($name) {
+                    Http::post("http://localhost:5000/api/Usuario/loadUsers/$name");
+                }
+            );
+
+            $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+            $ArrayUsuarios = $usuarios->json();
+            return redirect('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+            
+
+/*
+            $client = new Client();
+
+            $res = $client->post('http://localhost:5000/api/FileUpload',  [
+                ['headers' => ['responseType' => 'text']],
+                'multipart' => [
+                    [
+                        'name'     => 'files',
+                        'contents' => $file,
+                        'filename' => $name
+                    ]
+                ]
+            ]);
 
 
-                $data = Http::withHeaders(['responseType' => 'text'])->post('http://localhost:5000/api/FileUpload', [
-                    
-                ]);
-                return $name;
+
+
+            $promise = $client->postAsync('http://localhost:5000/api/FileUpload',  [
+                ['headers' => ['responseType' => 'text']],
+                'multipart' => [
+                    [
+                        'name'     => 'files',
+                        'contents' => $file,
+                        'filename' => $name
+                    ]
+                ]
+            ])->then(function ($response) use ($name) {
+                
+               
+                #$fileuploaded = Http::post("http://localhost:5000/api/Usuario/loadUsers/$name");
+            });
+
+            $response = $promise->wait();
+
+            $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+            $ArrayUsuarios = $usuarios->json();
+            return redirect('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+
+
+
+
+            #$usersUploaded = Http::post("http://localhost:5000/api/Usuario/loadUsers/$name");
+
+
+
+
+            //return $usersUploaded;
+            /*if ($data) {
+                if ($extension == 'txt') {
+                    $usersUploaded = Http::post("http://localhost:5000/api/Usuario/LoadUsers/$name");
+                } else if ($extension == 'xlsx') {
+                    $usersUploaded = Http::post("http://localhost:5000/api/Usuario/loadUsersExcel/$name");
+                } else {
+                    return "Formato de archivo invalido";
+                }
+
+                /*if ($usersUploaded) {
+                    $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+                    $ArrayUsuarios = $usuarios->json();
+                    return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+                } else {
+                    return "Error :c";
+                }
+               
             } else {
                 return "Error al subir archivo";
-            }
-        
+            }*/
     }
+
 
     public function acceder(Request $request)
     {
@@ -65,10 +156,5 @@ class AdmUsuarioController extends Controller
         $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
         $ArrayUsuarios = $usuarios->json();
         return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
-    }
-
-    public function exportPDF()
-    {
-        return 'a';
     }
 }
