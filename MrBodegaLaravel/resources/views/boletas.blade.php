@@ -22,7 +22,7 @@
                     <td>{{$boleta['fecha']}}</td>
                     <td>{{$boleta['direccion']}}</td>
                     <td>{{$boleta['total']}}</td>                
-                    <td><button type="button" class="btn btn-primary">Editar</td>            
+                    <td><a class="btn btn-primary" href="/boletas/editar-boleta/{{$boleta['id']}}">Editar</a></td>            
                 </tr>
                 @endforeach   
             </tbody>

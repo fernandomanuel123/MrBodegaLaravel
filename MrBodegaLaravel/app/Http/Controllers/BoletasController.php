@@ -28,32 +28,32 @@ class BoletasController extends Controller
         $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
         $ArrayUsuarios = $usuarios->json();
 
-       
-        return view('add-boleta',compact('ArrayUsuarios'));     
+        $productos = HTTP::get('http://localhost:5000/api/Producto');
+        $ArrayProductos = $productos->json();        
+        return view('add-boleta',compact('ArrayUsuarios','ArrayProductos'));     
     }
 
-    public function enviarboletas(Request $req) {
+    public function agregarboleta(Request $req){
+        //dd($req->all());
+        $boletas = HTTP::post('http://localhost:5000/api/Boleta',$req->except("_token"));
 
-        $nombre = $req->input('nombre');
-        $descripcion = $req->input('descripcion');
-        
-        $precio =  $req->input('precio');
-        $categoriaid = $req->input('categoria');        
-        $stock =  $req->input('stock');
-       
-        $data = Http::post('http://localhost:5000/api/Producto', [
-            'nombre' => $nombre,
-            'descripcion' => $descripcion,
-            'precio' => $precio,
-            'categoriaId' => $categoriaid,
-            'estado' => 'valido',
-            'stock' => $stock,            
-        ]);   
-        
-        $boletas = HTTP::get('http://localhost:5000/api/Boleta');
-        $ArrayBoletas = $boletas->json();
-        return view('boletas',compact('ArrayBoletas'));
+
+        return redirect()->action(array(self::class,'index'));                
     }
+
+    public function editarboleta(Request $req, $boleta_id){
+        //dd($req->all());
+        $boleta = HTTP::get('http://localhost:5000/api/Boleta/'.$boleta_id,$req->except("_token"));
+        $ArrayBoleta = $boleta->json();
+        return($ArrayBoleta);
+        $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+        $ArrayUsuarios = $usuarios->json();
+
+        $productos = HTTP::get('http://localhost:5000/api/Producto');
+        $ArrayProductos = $productos->json(); 
+        return view('editar-boleta',compact('ArrayUsuarios','ArrayProductos','ArrayBoleta'));               
+    }
+   
 
 
 }

@@ -36,6 +36,8 @@ Route::put('/productos', [App\Http\Controllers\ProductosController::class, 'edit
 
 Route::get('/boletas', [App\Http\Controllers\BoletasController::class, 'index'])->name('boletas');
 Route::get('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'test'])->name('boletas');
+Route::post('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'agregarboleta'])->name('boletas');
+Route::get('/boletas/editar-boleta/{boleta_id}', [App\Http\Controllers\BoletasController::class, 'editarboleta']);
 
 Route::post('/importfile', [App\Http\Controllers\AdmUsuarioController::class, 'importfile'])->name('importfile');
 
