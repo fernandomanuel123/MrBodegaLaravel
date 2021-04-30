@@ -12,13 +12,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-   
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-                    
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ __('Mi Bodega') }}
-                    
+
 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -54,7 +54,7 @@
                                 Productos
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownProductoButton">
-                                <a class="dropdown-item" id = "btn-listarproductos" href="productos">Listar Productos </a>
+                                <a class="dropdown-item" id="btn-listarproductos" href="productos">Listar Productos </a>
                                 <button class="btn dropdown-item" type="button" id="dropdownSubMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Categorias
                                 </button>
@@ -82,11 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="dropdown">
-                            <button class="btn " type="button" id="dropdownEstadisticaButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                Estadistica
-                            </button>
-                        </div>
+                            <a class="btn" href="metrics">Estadistica</a>
 
 
                     </ul>

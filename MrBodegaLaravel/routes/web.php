@@ -48,6 +48,9 @@ Route::post('/actualizar-usuario', [App\Http\Controllers\UsuarioDetailController
 
 Route::post('detalle-usuario/{id}',  [App\Http\Controllers\UsuarioDetailController::class, 'loadView'])->name('loadView');
 
+Route::get('/metrics', [App\Http\Controllers\ChartController::class, 'index'])->name('metrics');
+Route::get('/another-metrics', [App\Http\Controllers\ChartController::class, 'chart'])->name('chart-graph');
+
 /*Route::get('/login', function () {
     return view('login');
 });*/

@@ -28,7 +28,7 @@
             @csrf
             <label for="upload_file">Adjunte archivo</label>
             <input type="file" name="upload_file" id="upload_file">
-            <button type="submit" class="btn btn-primary">Cargar usuarios</button>
+            <button type="submit" id="cargar-usuarios-btn" class="btn btn-primary">Cargar usuarios</button>
         </form>
 
 
