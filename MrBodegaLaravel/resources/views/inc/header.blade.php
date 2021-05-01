@@ -77,7 +77,7 @@
                                 Boletas
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownBoletasButton">
-                                <a class="dropdown-item" href="boletas">Listar Boletas</a>
+                                <a id = "btn-listarboletas" class="dropdown-item" href="boletas">Listar Boletas</a>
                                 <a class="dropdown-item" href="#">Registrar Boleta</a>
                             </div>
                         </div>

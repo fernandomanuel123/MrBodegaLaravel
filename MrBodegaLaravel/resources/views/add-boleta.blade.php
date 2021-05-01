@@ -16,8 +16,8 @@
                 </div> 
 
                          <div class="mb-3">
-                         <label class="form-label">Fecha</label>
-                         <input type="date" class="form-control" name="Fecha" >
+                         <label  class="form-label">Fecha</label>
+                         <input  id= "l-fecha" type="date" class="form-control" name="Fecha" >
                          </div>  
                          <div class="form-group">
                          <label >Dirección</label>

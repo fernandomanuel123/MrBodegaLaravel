@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="container">
- <button type="button" class="btn btn-primary" onClick="location.href = '{{ url('boletas/add-boleta') }}'">Agregar boleta</button>
- <a class="dropdown-item" href="boletas/add-boleta">Listar Productos </a>
+ <button id= "btn-agregar" type="button" class="btn btn-primary" onClick="location.href = '{{ url('boletas/add-boleta') }}'">Agregar boleta</button>
+ <br/>
     <div class="row justify-content-center">        
         <table class="table">
             <thead>
