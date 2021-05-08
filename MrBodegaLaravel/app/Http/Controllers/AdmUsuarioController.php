@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Http;
 use App\Form;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
+use Illuminate\Validation\Rules\Exists;
+use Mockery\Undefined;
 use Psr\Http\Message\ResponseInterface;
+
+use function PHPUnit\Framework\isEmpty;
 
 class AdmUsuarioController extends Controller
 {
@@ -47,12 +51,13 @@ class AdmUsuarioController extends Controller
         //Storage::disk('local')->get('token');
         //Storage::disk('local')->put('token', $data['token']);
 
-        if ($data['token']) {
+        if (!$data->failed()) {
             $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
             $ArrayUsuarios = $usuarios->json();
             return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
         } else {
-            return "Credenciales incorrectas";
+            $msg = "Usuario o contraseña incorrectas";
+            return view("login")->with('msg', $msg);
         }
     }
 

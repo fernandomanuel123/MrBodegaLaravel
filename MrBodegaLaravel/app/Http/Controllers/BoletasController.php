@@ -35,10 +35,13 @@ class BoletasController extends Controller
 
     public function agregarboleta(Request $req){
        
-       HTTP::post('http://localhost:5000/api/Boleta',$req->except("_token"));
-
-
-        return redirect()->action(array(self::class,'index'));                
+       $data = HTTP::post('http://localhost:5000/api/Boleta',$req->except("_token"));
+    
+       $boletas = HTTP::get('http://localhost:5000/api/Boleta');
+        $ArrayBoletas = $boletas->json();
+        $msg = "Creacion con exito";
+        return view('boletas',compact('ArrayBoletas'))->with('msg', $msg); 
+                       
     }
 
     public function index_editarboleta(Request $req, $boleta_id){
@@ -76,8 +79,10 @@ class BoletasController extends Controller
        
         $boleta = HTTP::put('http://localhost:5000/api/Boleta',$data);
        
-
-        return redirect()->action(array(self::class,'index'));                
+        $boletas = HTTP::get('http://localhost:5000/api/Boleta');
+        $ArrayBoletas = $boletas->json();
+        $msg = "Actualizacion con exito";
+        return view('boletas',compact('ArrayBoletas'))->with('msg', $msg);              
     }
 
     

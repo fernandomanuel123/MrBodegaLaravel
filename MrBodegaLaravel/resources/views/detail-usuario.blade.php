@@ -7,6 +7,11 @@
 <div class="container">
 
     <h2>Editar usuario</h2>
+    @if (isset($msg))
+    <div class="alert alert-danger" role="alert">
+        {{$msg}}
+    </div>
+    @endif
     <form action="/actualizar-usuario" method="POST">
         @csrf
         <button type="submit" id="btn-guardar" class="btn btn-primary">Guardar</button>
@@ -23,13 +28,13 @@
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="gender" id="femenino" value="{{$usuario['genero']}}"  {{$usuario['genero']== 1 ? 'checked' : '' }}>
+                    <input type="radio" class="form-check-input" name="gender" id="femenino" value="{{$usuario['genero']}}" {{$usuario['genero']== 1 ? 'checked' : '' }}>
                     <label for="femenino" class="form-check-label">
                         Femenino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="gender" id="incognito" value="{{$usuario['genero']}}"  {{$usuario['genero']== 2 ? 'checked' : '' }}>
+                    <input type="radio" class="form-check-input" name="gender" id="incognito" value="{{$usuario['genero']}}" {{$usuario['genero']== 2 ? 'checked' : '' }}>
                     <label for="incognito" class="form-check-label">
                         Incognito
                     </label>

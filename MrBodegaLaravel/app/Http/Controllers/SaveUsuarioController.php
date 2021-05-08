@@ -55,12 +55,13 @@ class SaveUsuarioController extends Controller
             ]);
 
 
-            if ($data == true) {
+            if (!$data->failed()) {
                 $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
                 $ArrayUsuarios = $usuarios->json();
                 return redirect('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
             } else {
-                return "Error";
+                $msg = "Datos incorrectos";
+                return view('save-usuario')->with('msg', $msg);
             }
         }
     }

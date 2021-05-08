@@ -46,8 +46,18 @@ class UsuarioDetailController extends Controller
             'dni' => $dni
         ]);
 
-        $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
-        $ArrayUsuarios = $usuarios->json();
-        return redirect('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+        if ($data->serverError()) {
+            $usuario = HTTP::get("http://localhost:5000/api/Usuario/$id");
+            $fechaNac = date('Y-m-d', strtotime($usuario['fechaNacimiento']));
+            $msg = "Datos incorrectos";
+            return view('detail-usuario')->with('usuario', $usuario)->with('fechaNac', $fechaNac)->with('msg', $msg);
+        } else {
+            $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
+            $ArrayUsuarios = $usuarios->json();
+            $msg = "Actualizacion exitosa";
+            return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios)->with('msg', $msg);
+        }
+
+       
     }
 }

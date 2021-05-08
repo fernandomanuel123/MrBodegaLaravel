@@ -7,6 +7,11 @@
 <div class="container">
 
     <h2>Listado de usuarios</h2>
+    @if (isset($msg))
+    <div class="alert alert-success" role="alert">
+        {{$msg}}
+    </div>
+    @endif
     <div class="mb-3">
 
         <form class="mb-3" action="/save-usuario" method="POST">
@@ -103,15 +108,16 @@
                             contentType: false,
                             processData: false,
                             success: function() {
+                                alert("Usuarios registrados con exito")
                                 location.reload();
                             },
                             error: function(xhr, textStatus, errorThrown) {
-                                alert(textStatus);
+                                alert("Problemas al leer el archivo")
                             }
                         })
                     },
                     error: function(xhr, textStatus, errorThrown) {
-                        alert(textStatus);
+                        alert("Problemas al leer el archivo")
                     }
                 })
             } else if (ext == "xlsx") {
@@ -129,19 +135,20 @@
                             contentType: false,
                             processData: false,
                             success: function() {
+                                alert("Usuarios registrados con exito")
                                 location.reload();
                             },
                             error: function(xhr, textStatus, errorThrown) {
-                                alert(textStatus);
+                                alert("Problemas al leer el archivo")
                             }
                         })
                     },
                     error: function(xhr, textStatus, errorThrown) {
-                        alert(textStatus);
+                        alert("Problemas al leer el archivo")
                     }
                 })
             } else {
-                alert("Error: Archivo invalido");
+                alert("Problemas al leer el archivo")
             }
 
         });

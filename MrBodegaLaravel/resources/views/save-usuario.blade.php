@@ -7,6 +7,11 @@
 <div class="container">
 
     <h2>Registrar usuario</h2>
+    @if (isset($msg))
+    <div class="alert alert-danger" role="alert">
+        {{$msg}}
+    </div>
+    @endif
     <form action="/guardar-usuario" method="POST">
         @csrf
         <button id="btn-guardar" type="submit" class="btn btn-primary">Guardar</button>
@@ -39,42 +44,42 @@
 
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombres</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
         </div>
 
         <div class="mb-3">
             <label for="apellido" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ingrese su apellido">
+            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ingrese su apellido" required>
         </div>
 
         <div class="mb-3">
             <label for="correo" class="form-label">Correo</label>
-            <input type="text" class="form-control" name="correo" id="correo" placeholder="Ejem: abc@gmail.com">
+            <input type="text" class="form-control" name="correo" id="correo" placeholder="Ejem: abc@gmail.com" required>
         </div>
 
         <div class="mb-3">
             <label for="apellido" class="form-label">Fecha Nacimiento</label>
-            <input type="date" class="form-control" name="fecha" id="fecha">
+            <input type="date" class="form-control" name="fecha" id="fecha" required>
         </div>
 
         <div class="mb-3">
             <label for="telefono" class="form-label">Telefono</label>
-            <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ingrese nro. telefonico">
+            <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ingrese nro. telefonico" required>
         </div>
 
         <div class="mb-3">
             <label for="dni" class="form-label">DNI</label>
-            <input type="number" class="form-control" name="dni" id="dni" placeholder="Ingrese nro. DNI">
+            <input type="number" class="form-control" name="dni" id="dni" placeholder="Ingrese nro. DNI" required>
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese contraseña">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese contraseña" required>
         </div>
 
         <div class="mb-3">
             <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
-            <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Ingrese contraseña nuevamente">
+            <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Ingrese contraseña nuevamente" required>
         </div>
     </form>
 </div>
