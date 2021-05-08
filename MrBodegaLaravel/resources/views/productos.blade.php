@@ -60,9 +60,15 @@
         <input type="number" class="form-control" id="add_precio"  name="add_precio"  required > 
     </div> 
     <div class="form-group">
-        <label>Categoria</label>
-        <input type="number" class="form-control" id="add_categoria" name="add_categoria" required >
-    </div>      
+        <label >Categoria</label>
+        <select class="form-control" id="add_categoria" name="add_categoria" required>
+        <option value = "">Seleccione una categoría</option>
+        @foreach($arrayCategorias as $id => $nombre)
+        <option value = "{{$id}}">{{$nombre}}</option>
+        @endforeach
+
+        </select>
+     </div>      
     <div class="form-group">
         <label>Stock</label>
         <input type="number" class="form-control" id="add_stock" name="add_stock"  required >
@@ -107,7 +113,12 @@
     </div>
     <div class="form-group">
         <label >Categoria</label>
-        <input type="number" class="form-control" id="categoria" name="categoria" required>
+        <select class="form-control" id="categoria" name="categoria" required>
+        @foreach($arrayCategorias as $id => $nombre)
+        <option value = "{{$id}}">{{$nombre}}</option>
+        @endforeach
+
+        </select>
      </div>
      <div class="form-group">
         <label >Estado</label>

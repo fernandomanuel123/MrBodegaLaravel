@@ -35,9 +35,10 @@ Route::post('/productos', [App\Http\Controllers\ProductosController::class, 'env
 Route::put('/productos', [App\Http\Controllers\ProductosController::class, 'editarproductos'])->name('productos');
 
 Route::get('/boletas', [App\Http\Controllers\BoletasController::class, 'index'])->name('boletas');
-Route::get('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'test'])->name('boletas');
+Route::get('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'index_addboleta'])->name('boletas');
 Route::post('/boletas/add-boleta', [App\Http\Controllers\BoletasController::class, 'agregarboleta'])->name('boletas');
-Route::get('/boletas/editar-boleta/{boleta_id}', [App\Http\Controllers\BoletasController::class, 'editarboleta']);
+Route::get('/boletas/editar-boleta/{boleta_id}', [App\Http\Controllers\BoletasController::class, 'index_editarboleta']);
+Route::put('/boletas/editar-boleta/{boleta_id}', [App\Http\Controllers\BoletasController::class, 'editarboleta']);
 
 Route::post('/importfile', [App\Http\Controllers\AdmUsuarioController::class, 'importfile'])->name('importfile');
 

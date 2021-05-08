@@ -21,7 +21,8 @@ class ProductosController extends Controller
 
         $productos = HTTP::get('http://localhost:5000/api/Producto');
         $ArrayProductos = $productos->json();
-        return view('productos',compact('ArrayProductos'));     
+        $arrayCategorias= [1=>"Whisky", 2=>"Ron", 3=>"Cerveza", 4=>"Vino",5=> "Vodka",6=> "Tequila", 7=>"Piqueos", 8=>"Otros"];
+        return view('productos',compact('ArrayProductos','arrayCategorias'));     
     }
 
     public function test() {
@@ -47,9 +48,7 @@ class ProductosController extends Controller
             'stock' => $stock,            
         ]);   
         
-        $productos = HTTP::get('http://localhost:5000/api/Producto');
-        $ArrayProductos = $productos->json();
-        return view('productos',compact('ArrayProductos'));
+        return redirect()->action(array(self::class,'index'));
     }
 
     public function editarproductos(Request $req) {
@@ -72,9 +71,7 @@ class ProductosController extends Controller
             'stock' => $stock,            
         ]);   
         
-        $productos = HTTP::get('http://localhost:5000/api/Producto');
-        $ArrayProductos = $productos->json();
-        return view('productos',compact('ArrayProductos'));
+        return redirect()->action(array(self::class,'index'));
     }
 
 

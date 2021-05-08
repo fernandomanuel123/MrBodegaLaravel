@@ -174,21 +174,8 @@ $(function() {
     
    $('#product').modal('toggle');   
  
-  }); 
-  /*$('#btn-grabar').on('click',function(event){
-    event.preventDefault()
-    var listaproductos= []
-    $('input.cantidad').each(function(){
-        listaproductos.push({
-            ProductoId: $(this).data("id"),
-            Cantidad: $(this).val()  
-        })
-    })
-   
-   $('#DetalleBoleta').val(listaproductos)
-   console.log($('#formulario').serializeArray())
-   //$('#formulario').submit()
-  })*/
+  });
+
 });
 </script>
 
