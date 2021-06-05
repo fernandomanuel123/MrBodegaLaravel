@@ -58,7 +58,8 @@ class SaveUsuarioController extends Controller
             if (!$data->failed()) {
                 $usuarios = HTTP::get('http://localhost:5000/api/Usuario');
                 $ArrayUsuarios = $usuarios->json();
-                return redirect('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
+                $msg = "Creacion con exito";
+                return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios)->with('msg', $msg);
             } else {
                 $msg = "Datos incorrectos";
                 return view('save-usuario')->with('msg', $msg);

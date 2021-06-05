@@ -49,7 +49,7 @@
             <tfoot>
             <tr>
             <td colspan = "3"></td>
-            <td><button type= "submit" id="btn-grabar" class="btn btn-primary">Save changes</button></td>
+            <td><button type= "submit" id="btn-grabar" class="btn btn-primary">Guardar</button></td>
             </tr>            
             </tfoot>
         </table>

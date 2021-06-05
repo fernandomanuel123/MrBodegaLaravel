@@ -56,7 +56,7 @@ class AdmUsuarioController extends Controller
             $ArrayUsuarios = $usuarios->json();
             return view('adm-usuario')->with('ArrayUsuarios', $ArrayUsuarios);
         } else {
-            $msg = "Usuario o contraseña incorrectas";
+            $msg = "Usuario o contraseña incorrecta";
             return view("login")->with('msg', $msg);
         }
     }
